@@ -1,34 +1,35 @@
 # Using Reported Fault Symptoms to Predict Safety Related Faults.
 
 ## Motivation for this study
-Usually, when a defect is reported during train servicing, the defect symptoms will be reported and the technician will follow up on the troubleshooting. Fault group classification is provided only when troubleshooting has completed. An experienced planner will prioritise the defect accordingly, based on the symptoms, if it is a safety related delay. However, this process can be automated using machine learning algorithms, such as the Navies Baynes or the Logistic Regression which are a popular ML model for sentiment analysis, to predict if the fault is safety related. This will reduce manual labeling of the fault type. 
+There are 2 types of Maintenance in general.
+1) Time-based Maintenance (Overhaul) which are planned to replacing aging component and capture hidden defect, before it becomes a service defects.
+2) Ad-Hoc Maintenance which are unplanned work to rectify a service defects.
+
+Ideally, time-based maintenance is suppose to reduce ad-hoc maintenance, when done properly. Hence, we can do a study to check if there is a reduction in defects when a time-based maintenance is completed. 
 
 ## Data 
-Data showcase in this case study are gathered from a train operator based in a highly populated and warm area. Reported faults are between 2010-Jan to 2020-Dec. Sensitive information has been replaced with a dummy information.
+Data used for this case study are gathered from a train operator based in a highly populated and warm area. Reported Aircon faults are dated between 2016-Jan to 2022-Mar. There are 8 trains with aircon Overhauled within this period, which is in another dataframe. Sensitive information has been replaced with a dummy information.
 
-There are 5 columns
+There are 3 columns for aircon defects sheet
 
- 1. Record_Date - Date of the reported fault    
- 2. Activity_Type - Type of Fault Activity. Activity Type 3 is corrective maintenance (CM) fault. Remaining Type are non-CM faults.        
- 3. Service_Number - reported fault service ID. If there is no service number. The reported fault found during non-service hours. 
- 4. Service_Fault_Symptoms - reported fault symptoms text
- 5. Fault_Group - Classification of fault. Will be using this to seperate between safety and non-safety faults.
+ 1. Record - Date of the reported aircon fault    
+ 2. Cause - Types of Aircon Fault.       
+ 3. Train Number - Train Number for the reported defective Aircon
+
+There are 2 columns for aircon defects sheet
+
+ 1. Overhaul Date - Date of the Aircon Overhauled
+ 2. Train Number - Overhauled Aircon Train Number.
 
 ## Step
 
 Steps involved in this study include
 
-1. Cleaning of data - removal of unncessary data and filling Nil data - Using Pandas library.
+1. Cleaning of data - removal of unncessary data and joining 2 dataframe - Using Pandas library.
 2. Explortary Data Analysis - explore interesting trend in the data - Using matlibplot and seaborn library.
-3. Machine Learning - using 2 popular ML model (Naive Bayes model and Logistic Regression)
-4. Text Analysis with Feature Engineering - create feature data to look at the most popular word in reported symptoms that has highest correlationship with safety related defects.
-5. Natural Language Processing - using popular NLP technique to reduce noises in the service fault symptoms text to improve the ML.
+3. Feature Engineering - creating feature data to check if overhauled aircon trains causes adhoc defects reduction.
 
 ## Summary
 
-The ML model is able to predict the fault type ( Safety related or non safety related) using fault symptoms with 90.3% accuracy for NB model and 93.9% accuracy with LR model. The model is further improved with NLP to 92.5% accuracy for MB model but accuary remains the same for LR model.
+The final score shows that all the airocn defects found in the overhauled trains has no reduction post-overhaul. This might due to various reasons but the most common one is current defects found in aircon system are not within the scope of the aircon overhaul. However, overhauling of aircon has it merit but we should not gauge its effectiveness based on the its effectivness in reducing Ad-Hoc Maintenance.
 
-Other form of analysis that can be done to further improve the ML model.
-
-1) To further analyse symptoms that has tagged as False-Positive and False-Negative.
-2) To manually recategorise misc fault category symptoms.
