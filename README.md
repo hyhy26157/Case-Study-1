@@ -1,9 +1,9 @@
-# Using Reported Fault Symptoms to Predict Safety Related Faults.
+# Does planned maintenance reduce ad hoc maintenance work?
 
 ## Motivation for this study
 There are 2 types of Maintenance in general.
-1) Time-based Maintenance (Overhaul) which are planned to replacing aging component and capture hidden defect, before it becomes a service defects.
-2) Ad-Hoc Maintenance which are unplanned work to rectify a service defects.
+1) Planned Maintenance (Overhaul) which are conducted on an interval, to replace aging component and to capture hidden defect, before it becomes a service defects.
+2) Ad-Hoc Maintenance which are unplanned work; to rectify a service defects.
 
 Ideally, time-based maintenance is suppose to reduce ad-hoc maintenance, when done properly. Hence, we can do a study to check if there is a reduction in defects when a time-based maintenance is completed. 
 
@@ -31,5 +31,5 @@ Steps involved in this study include
 
 ## Summary
 
-The final score shows that all the airocn defects found in the overhauled trains has no reduction post-overhaul. This might due to various reasons but the most common one is current defects found in aircon system are not within the scope of the aircon overhaul. However, overhauling of aircon has it merit but we should not gauge its effectiveness based on the its effectivness in reducing Ad-Hoc Maintenance.
+The final score shows that all the airocn defects found in the overhauled trains has no reduction post-overhaul. This might due to various reasons but the most common one is current defects found in aircon system are not within the scope of the aircon overhaul. However, overhauling of aircon has it merit but we should not gauge its effectiveness based on Ad-Hoc Maintenance.
 
